@@ -8,6 +8,7 @@ const meta = {
   args: {
     children: 'Button',
     disabled: false,
+    size: 'medium',
   },
   argTypes: {
     disabled: {
@@ -36,6 +37,24 @@ export const Destructive: Story = {
   args: {
     children: 'Destructive',
     variant: 'destructive',
+  },
+};
+
+export const Small: Story = {
+  args: {
+    size: 'small',
+  },
+};
+
+export const Medium: Story = {
+  args: {
+    size: 'medium',
+  },
+};
+
+export const Large: Story = {
+  args: {
+    size: 'large',
   },
 };
 
