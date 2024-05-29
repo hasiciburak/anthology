@@ -58,4 +58,20 @@ export const Large: Story = {
   },
 };
 
+export const Dark: Story = {
+  parameters: {
+    themes: {
+      themeOverride: 'dark',
+    },
+  },
+};
+
+export const Mobile: Story = {
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile1',
+    },
+  },
+};
+
 export default meta;

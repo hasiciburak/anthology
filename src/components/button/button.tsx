@@ -4,7 +4,8 @@ import clsx from 'clsx';
 
 /* 
  This means that
- the button component takes everything that button elements take,
+ the button component takes everything 
+ that button elements take,
  plus a variant prop.
  */
 export type ButtonProps = ComponentProps<'button'> & {
@@ -18,6 +19,13 @@ export const Button = ({
   className,
   ...props
 }: ButtonProps) => {
-  let classes = clsx(styles.button, styles[variant], styles[size], className);
+  let classes = clsx(
+    'bg-indigo-500 hover:bg-indigo-400',
+    styles.button,
+    styles[variant],
+    styles[size],
+    className,
+  );
+
   return <button {...props} className={classes} />;
 };
