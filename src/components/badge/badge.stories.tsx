@@ -31,5 +31,12 @@ const meta = {
   },
 } as Meta<typeof Badge>;
 
-export default meta;
 type Story = StoryObj<typeof Badge>;
+
+export const Default: Story = {
+  args: {
+    variant: 'default',
+    children: 'Default',
+  },
+};
+export default meta;

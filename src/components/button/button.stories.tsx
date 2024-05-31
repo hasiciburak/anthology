@@ -3,7 +3,7 @@ import { Button } from './button';
 
 // This will share the same title and component with the story.
 const meta = {
-  title: 'Button',
+  title: 'Components/Button',
   component: Button,
   args: {
     children: 'Button',
@@ -11,8 +11,20 @@ const meta = {
     size: 'medium',
   },
   argTypes: {
+    children: {
+      name: 'Label',
+      control: 'text',
+      description: 'Text to display on the button',
+      table: {
+        disable: true,
+      },
+    },
+    size: { control: 'select', options: ['small', 'medium', 'large'] },
     disabled: {
       control: 'boolean',
+    },
+    variant: {
+      control: 'select',
     },
   },
 } satisfies Meta;
