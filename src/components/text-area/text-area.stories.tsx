@@ -44,7 +44,53 @@ const meta = {
       },
     },
   },
-} as Meta<typeof TextArea>;
+};
+
+type Story = StoryObj<typeof TextArea>;
+
+export const Default: Story = {
+  args: {},
+};
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+};
+
+export const WithCount: Story = {
+  args: {
+    maxLength: 140,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const textArea = canvas.getByRole('textbox');
+    const count = canvas.getByTestId('length');
+
+    const inputValue = 'Hello World!';
+
+    await userEvent.type(textArea, inputValue);
+    expect(count).toHaveTextContent(inputValue.length.toString());
+  },
+};
+
+export const TextTooLong: Story = {
+  args: {
+    maxLength: 10,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const textArea = canvas.getByRole('textbox');
+    const count = canvas.getByTestId('length');
+
+    const inputValue = 'H' + 'e'.repeat(140) + '!';
+
+    await userEvent.type(textArea, inputValue);
+    expect(count).toHaveTextContent(inputValue.length.toString());
+    expect(textArea).toHaveAttribute('aria-invalid', 'true');
+    expect(textArea).toHaveClass('ring-danger-500');
+    expect(textArea).toHaveStyle({ borderColor: 'rgb(237, 70, 86)' });
+  },
+};
 
 export default meta;
-type Story = StoryObj<typeof TextArea>;

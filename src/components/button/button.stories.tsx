@@ -15,9 +15,6 @@ const meta = {
       name: 'Label',
       control: 'text',
       description: 'Text to display on the button',
-      table: {
-        disable: true,
-      },
     },
     size: { control: 'select', options: ['small', 'medium', 'large'] },
     disabled: {
